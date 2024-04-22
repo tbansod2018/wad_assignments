@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Names App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            padding: 8px;
+            margin-right: 8px;
+        }
+
+        button {
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        h3 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Names App</h2>
+
+        <label for="nameInput">Enter a name:</label>
+        <input type="text" id="nameInput" placeholder="Type a name">
+        <button onclick="addName()">Add Name</button>
+
+        <br><br>
+
+        <button onclick="displayNames()">Display Names</button>
+
+        <h3>Names:</h3>
+        <ul id="namesList"></ul>
+    </div>
+
+    <script>
+        var namesArray = [];
+
+        function addName() {
+            var nameInput = document.getElementById("nameInput");
+            var name = nameInput.value;
+            namesArray.push(name);
+            nameInput.value = "";
+        }
+
+        function displayNames() {
+            var namesList = document.getElementById("namesList");
+            namesList.innerHTML = "";
+
+            for (var i = 0; i < namesArray.length; i++) {
+                var li = document.createElement("li");
+                li.appendChild(document.createTextNode(namesArray[i]));
+                namesList.appendChild(li);
+            }
+        }
+
+    </script>
+</body>
+
+</html>
